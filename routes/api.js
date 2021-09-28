@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../models/workout.js');
 const router = express.Router();
 
+//function to get total duration of time spent for a workout
 totalDuration = (workoutsdata) => {
 const allData = [];
 workoutsdata.forEach(workout => {
@@ -11,11 +12,11 @@ workoutsdata.forEach(workout => {
 
     (exData.exercises).forEach(element => {
         duration += element.duration;
-        console.log(duration);
+        // console.log(duration);
     });
 
     exData.totalDuration = duration;
-    console.log('EXDATA: '+ exData.totalDuration);
+    // console.log('EXDATA: '+ exData.totalDuration);
     allData.push(exData);
 });
 return allData;
